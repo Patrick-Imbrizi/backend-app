@@ -4,7 +4,8 @@
   "info": {
     "singularName": "lesson",
     "pluralName": "lessons",
-    "displayName": "Lesson"
+    "displayName": "Lesson",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,44 +18,57 @@
         "audio",
         "video",
         "pdf",
-        "image"
-      ]
+        "image",
+        "link"
+      ],
+      "pluginOptions": {}
     },
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {}
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "pluginOptions": {}
     },
     "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ],
-      "type": "media",
-      "multiple": false
+      "pluginOptions": {}
     },
     "duration": {
-      "type": "integer"
+      "type": "integer",
+      "pluginOptions": {}
     },
     "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ],
-      "type": "media",
-      "multiple": true
+      "pluginOptions": {}
     },
     "course": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::course.course",
       "inversedBy": "lessons"
+    },
+    "link": {
+      "type": "string",
+      "pluginOptions": {}
     }
   }
 }

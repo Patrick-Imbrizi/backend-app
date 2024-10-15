@@ -491,6 +491,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
     singularName: 'course';
     pluralName: 'courses';
     displayName: 'Course';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -503,6 +504,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
     teacher: Schema.Attribute.String;
     topic: Schema.Attribute.Relation<'manyToOne', 'api::topic.topic'>;
     lessons: Schema.Attribute.Relation<'oneToMany', 'api::lesson.lesson'>;
+    about: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -521,12 +523,15 @@ export interface ApiLessonLesson extends Struct.CollectionTypeSchema {
     singularName: 'lesson';
     pluralName: 'lessons';
     displayName: 'Lesson';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    type: Schema.Attribute.Enumeration<['audio', 'video', 'pdf', 'image']>;
+    type: Schema.Attribute.Enumeration<
+      ['audio', 'video', 'pdf', 'image', 'link']
+    >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     description: Schema.Attribute.Text;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
@@ -536,6 +541,7 @@ export interface ApiLessonLesson extends Struct.CollectionTypeSchema {
       true
     >;
     course: Schema.Attribute.Relation<'manyToOne', 'api::course.course'>;
+    link: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
