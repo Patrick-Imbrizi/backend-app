@@ -12,6 +12,22 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "about": {
+      "type": "text"
+    },
+    "progress": {
+      "type": "decimal"
+    },
+    "teacher": {
+      "type": "string"
+    },
     "cover": {
       "type": "media",
       "multiple": false,
@@ -23,34 +39,11 @@
         "audios"
       ]
     },
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "description": {
-      "type": "text"
-    },
-    "progress": {
-      "type": "decimal",
-      "default": 0
-    },
-    "teacher": {
-      "type": "string"
-    },
     "topic": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::topic.topic",
       "inversedBy": "courses"
-    },
-    "lessons": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::lesson.lesson",
-      "mappedBy": "course"
-    },
-    "about": {
-      "type": "text"
     }
   }
 }

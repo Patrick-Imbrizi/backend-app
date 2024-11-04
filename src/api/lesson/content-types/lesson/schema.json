@@ -4,71 +4,55 @@
   "info": {
     "singularName": "lesson",
     "pluralName": "lessons",
-    "displayName": "Lesson",
-    "description": ""
+    "displayName": "Lesson"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "cover": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
     "type": {
       "type": "enumeration",
       "enum": [
-        "audio",
         "video",
+        "audio",
         "pdf",
         "image",
         "link"
-      ],
-      "pluginOptions": {}
-    },
-    "title": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {}
-    },
-    "description": {
-      "type": "text",
-      "pluginOptions": {}
-    },
-    "cover": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "pluginOptions": {}
-    },
-    "duration": {
-      "type": "integer",
-      "pluginOptions": {}
-    },
-    "media": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "pluginOptions": {}
-    },
-    "course": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::course.course",
-      "inversedBy": "lessons"
+      ]
     },
     "link": {
-      "type": "string",
-      "pluginOptions": {}
+      "type": "string"
     }
   }
 }
